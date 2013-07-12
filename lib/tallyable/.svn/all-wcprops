@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/myproject/!svn/ver/172/Supreeth/tallyable/lib/tallyable
+END
+version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/myproject/!svn/ver/172/Supreeth/tallyable/lib/tallyable/version.rb
+END
+acts_as_tallyable.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/myproject/!svn/ver/173/Supreeth/tallyable/lib/tallyable/acts_as_tallyable.rb
+END
