@@ -2,21 +2,21 @@ require 'test_helper'
 require 'employee'
 
 class ActsAsTallyableTest < Minitest::Test
-  def employee_stub(port, stub_response)
-    stub_request(:post, "http://example.com:#{ port }").
+  def employee_stub(stub_response)
+    stub_request(:post, "http://example.com:9002").
       with( body: File.read("lib/tallyable/employee_request.xml") ).
         to_return(stub_response)
   end
 
   def test_an_employee_tallyable_for_invalid_request
-    employee_stub(9002, status: 500, body: "Internal Server Error", headers: {})
+    employee_stub(status: 500, body: "Internal Server Error", headers: {})
 
     result = Employee.employee_request
     assert_equal result, []
   end
 
   def test_an_employee_tallyable_on_a_valid_request
-    employee_stub(9002, status: 200, 
+    employee_stub(status: 200, 
       body: File.read("test/fixtures/employee_response.xml"), headers: {})
 
     result = Employee.employee_request
@@ -24,7 +24,7 @@ class ActsAsTallyableTest < Minitest::Test
   end
 
   def test_an_employee_tallyable_response_on_a_valid_request
-    employee_stub(9002, status: 200, 
+    employee_stub(status: 200, 
       body: File.read("test/fixtures/employee_response.xml"), headers: {})
 
     result = Employee.employee_request

@@ -14,11 +14,11 @@ module Tallyable
       end
 
       def employee_request
-        response = tally_request("#{ File.dirname(__FILE__) }/employee_request.xml")
+        result = tally_request("#{ File.dirname(__FILE__) }/employee_request.xml")
         employees = []
 
-        if response.is_a? Hash
-          xml = Nokogiri.XML(response.body)
+        unless result.is_a? String
+          xml = Nokogiri.XML(result.body)
           xml.xpath("ENVELOPE").each do |nodes|
             params = {}
             nodes.children.each do |node|
