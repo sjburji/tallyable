@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tallyable (0.0.1)
+    tallyable (0.0.2)
       nokogiri
 
 GEM
