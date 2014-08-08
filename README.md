@@ -32,7 +32,7 @@ Or install it yourself as:
     require 'tallyable'
 
     class Employee
-      acts_as_tallyable "http://example.com", 9002
+      acts_as_tallyable "http://example.com", 9002 # Tally host and port options
 
       self.class.employee_request
     end
