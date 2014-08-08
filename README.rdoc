@@ -2,27 +2,28 @@
 
 Basic Tally ERP.9 integration using xml api
 
+- The motivation is to provide a "Get Started" framework for Tally integration. This has to be essentially extended as per custom requirements.
+
 - This requires Tally ERP.9 to be running with the Company selected from the Tally interface
 
 - To be used as a guide to develope integration capabilities for your rails application with Tally ERP.9
 
-- Authentication is interestingly kept open for xml interface
+- Authentication is interestingly kept open with default configuration, for the xml interface
   - This is because Authentication is not yet configurable in Tally ERP.9 remote user using xml api interface
   - Allows only Tally .NET user's Application login for now
 
 - TDL (Tally Domain Language) was found to be the most relevant and easy to use for integration purposes
-- TDL requests will need to be created and used by the model in question
-  - Staff model has been shown as an example
 
 - Refer test cases for usage
-
-- For sanity of testing purposes, test cases require a valid Tally ERP.9 connection
-  - With a dummy Company selected
-  - Dummy data of employees
-  - Refer /test/dummy/config/application.yml for Settings
+  - To run test cases use `rake test`
 
 - How to plugin?
-  - add the file acts_as_tallyable in lib/tallyable/.
-  - add the file tallyable.rb in lib/. for plugin inclusion in load path
-    - additionally requires yaml and other application specific files
-  - configure tally.yml for configuration settings and you are good to Tally ...!
+  - include `gem tallyable` in your Gemfile
+  - add the file acts_as_tallyable in your lib/tallyable/.
+  - add the file tallyable.rb in your lib/. for plugin inclusion in load path
+    - additionally requires employee xml and other application specific files
+  - That's it you are good to Tally ...!
+
+- Disclaimer
+  - Author does not endorse TALLY, nor has any links with TALLY trademark or brand
+  
